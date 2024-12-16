@@ -2,6 +2,11 @@ import strawberry
 
 @strawberry.type
 class User:
-    id: int
-    username: str
-    email: str
+    Name: str
+    Email: str
+    Age: int
+
+    def __init__(self, Name, Email, Age):
+        self.Name = Name
+        self.Email = Email
+        self.Age = Age
