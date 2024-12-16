@@ -1,4 +1,4 @@
-from db.user_db import USER_DB
+from database.user_db import USER_DB
 from models.user_model import User
 
 def get_all_users() -> list[User]:

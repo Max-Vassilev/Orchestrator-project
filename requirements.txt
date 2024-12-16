@@ -6,4 +6,3 @@ six==1.17.0
 strawberry-graphql==0.254.0
 typing_extensions==4.12.2
 uvicorn==0.32.1
-.pyc
