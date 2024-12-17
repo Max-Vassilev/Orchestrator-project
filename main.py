@@ -1,6 +1,6 @@
 import uvicorn
 from strawberry.asgi import GraphQL
-from user_service.schema import schema
+from schema import schema
 
 app = GraphQL(schema)
 
