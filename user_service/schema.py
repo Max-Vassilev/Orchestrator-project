@@ -1,5 +1,5 @@
 import strawberry
-from models.user_model import User
+from user_service.user_model import User
 from orchestrator.orchestrator import get_all_users
 
 @strawberry.type

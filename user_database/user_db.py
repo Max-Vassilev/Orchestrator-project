@@ -1,5 +1,5 @@
 import boto3
-from models.user_model import User
+from user_service.user_model import User
 from dotenv import load_dotenv
 import os
 
