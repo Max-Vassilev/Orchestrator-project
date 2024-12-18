@@ -1,3 +1,1 @@
- +---------+        +--------------+        +------------+        +-----------+
- | GraphQL |  --->  | Orchestrator |  --->  | User Service |  --->  | DynamoDB  |
- +---------+        +--------------+        +------------+        +-----------+
+GraphQL ----> Orchestrator ----> User Service --gRPC--> DynamoDB
