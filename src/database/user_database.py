@@ -1,5 +1,5 @@
 import boto3
-from user_service.user_model import User
+from src.graphql.user_model import User
 from dotenv import load_dotenv
 import os
 
@@ -20,4 +20,4 @@ users_table = dynamodb.Table('Users')
 
 def get_all_users_from_dynamodb() -> list[User]:
     response = users_table.scan()
-    return [User(**item) for item in response['Items']]
+    return [User(Name=item['Name'], Email=item['Email']) for item in response['Items']]

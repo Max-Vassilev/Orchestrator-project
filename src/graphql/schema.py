@@ -1,6 +1,6 @@
 import strawberry
-from user_service.user_model import User
-from orchestrator.orchestrator import get_all_users
+from src.graphql.user_model import User
+from src.orchestrator.orchestrator import get_all_users
 
 @strawberry.type
 class Query:

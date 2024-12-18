@@ -1,8 +1,5 @@
 import uvicorn
-from strawberry.asgi import GraphQL
-from schema import schema
-
-app = GraphQL(schema)
+from src.graphql.graphql_server import graphql_app
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(graphql_app, host="0.0.0.0", port=8000)
