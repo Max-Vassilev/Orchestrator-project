@@ -3,13 +3,22 @@ syntax = "proto3";
 package user_service;
 
 service UserService {
-    rpc GetAllUsers (UserRequest) returns (UserResponse);
+    rpc GetAllUsers (GetUserRequest) returns (GetUserResponse);
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
 }
 
-message UserRequest {}
-message UserResponse {
+message GetUserRequest {}
+
+message GetUserResponse {
     repeated User users = 1;
 }
+
+message CreateUserRequest {
+    string name = 1;
+    string email = 2;
+}
+
+message CreateUserResponse {}
 
 message User {
     string name = 1;

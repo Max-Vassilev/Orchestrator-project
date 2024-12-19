@@ -7,7 +7,7 @@ import grpc
 from concurrent import futures
 from src.user_service.generated import user_service_pb2
 from src.user_service.generated import user_service_pb2_grpc
-from src.database.user_database import get_all_users_from_dynamodb
+from src.database.user_database import get_all_users_from_dynamodb, create_user_in_dynamodb
 
 class UserService(user_service_pb2_grpc.UserServiceServicer):
     def GetAllUsers(self, request, context):
@@ -19,7 +19,20 @@ class UserService(user_service_pb2_grpc.UserServiceServicer):
                 email=user.Email
             )
             user_response_list.append(user_response)
-        return user_service_pb2.UserResponse(users=user_response_list)
+        return user_service_pb2.GetUserResponse(users=user_response_list)
+
+    def CreateUser(self, request, context):
+        name = request.name
+        email = request.email
+        new_user = create_user_in_dynamodb(name, email)
+
+        if new_user:
+            context.set_details(f"User {name} created successfully")
+            return user_service_pb2.CreateUserResponse()
+        else:
+            context.set_details("Error creating user")
+            return user_service_pb2.CreateUserResponse()
+
 
 server = grpc.server(futures.ThreadPoolExecutor())
 user_service_pb2_grpc.add_UserServiceServicer_to_server(UserService(), server)

@@ -21,3 +21,11 @@ users_table = dynamodb.Table('Users')
 def get_all_users_from_dynamodb() -> list[User]:
     response = users_table.scan()
     return [User(Name=item['Name'], Email=item['Email']) for item in response['Items']]
+
+def create_user_in_dynamodb(name: str, email: str) -> User:
+    try:
+        users_table.put_item(Item={'Name': name, 'Email': email})
+        return User(Name=name, Email=email)
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
