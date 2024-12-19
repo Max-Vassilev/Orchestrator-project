@@ -9,4 +9,4 @@ The system follows the structure below:
 
 The flow is as follows:
 
-## GraphQL ----> Orchestrator ----> User Service --gRPC--> DynamoDB
+## GraphQL ----> Orchestrator --gRPC--> User Service ----> DynamoDB
