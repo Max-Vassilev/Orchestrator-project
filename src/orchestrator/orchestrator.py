@@ -1,6 +1,6 @@
 import grpc
-from proto import user_service_pb2
-from proto import user_service_pb2_grpc
+from src.user_service.generated import user_service_pb2
+from src.user_service.generated import user_service_pb2_grpc
 from src.graphql.user_model import User
 
 def get_all_users() -> list[User]:

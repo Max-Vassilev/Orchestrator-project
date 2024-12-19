@@ -6,8 +6,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'
 
 import grpc
 from concurrent import futures
-from proto import user_service_pb2
-from proto import user_service_pb2_grpc
+from src.user_service.generated import user_service_pb2
+from src.user_service.generated import user_service_pb2_grpc
 from src.database.user_database import get_all_users_from_dynamodb
 
 
