@@ -1,4 +1,4 @@
-# generate_grpc_code:
+generate_grpc_code:
 	python -m grpc_tools.protoc -I./proto --python_out=./src/user_service/generated --grpc_python_out=./src/user_service/generated proto/user_service.proto
 
 start_user_service:
@@ -6,3 +6,20 @@ start_user_service:
 
 start_orchestrator:
 	python main.py
+
+
+
+# query {
+#   users {
+#     Name
+#     Email
+#   }
+# }
+
+
+# mutation {
+#   createUser(name: "Alice", email: "alice@example.com") {
+#     Name
+#     Email
+#   }
+# }
