@@ -29,3 +29,4 @@ def create_user_in_dynamodb(name: str, email: str) -> User:
     except Exception as e:
         print(f"Error: {e}")
         return None
+
